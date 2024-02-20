@@ -73,3 +73,22 @@ th, td{
 .add-tour-btn:hover{
     background-color: var(--primary-color) !important;
 }
+
+.pagination button{
+    width: 2rem;
+    height: 2rem;
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--secondary-color);
+    color: var(--header-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.active-page{
+    background-color: var(--secondary-color);
+    color: #fff !important;
+}
