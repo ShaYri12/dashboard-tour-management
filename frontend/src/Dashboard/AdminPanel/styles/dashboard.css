@@ -1,0 +1,20 @@
+
+.dashboard{
+    min-height: 100vh;
+}
+.general-box{
+    width: 250px;
+    height: 200px;
+    margin: 0 20px;
+    border-radius: 20px;
+    box-shadow: 1.5px 7px 17px rgba(255, 126, 14, 0.762);
+    border-color: var(--secondary-color) !important;
+}
+
+.general-box:hover h3{
+  color: #fff; 
+}
+
+.general-box:hover{
+    background-color: var(--secondary-color);
+}

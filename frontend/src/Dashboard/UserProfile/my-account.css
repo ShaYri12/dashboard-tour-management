@@ -1,0 +1,42 @@
+.my-account{
+    min-height: 100% !important;
+}
+
+.profile .profile-pic{
+    width: 100px;
+    height: 100px;
+    border-color: var(--secondary-color) !important;
+    object-fit: cover;
+}
+
+.profile-navigation button{
+    padding: 15px;
+    background-color: #fff;
+}
+
+.profile-navigation button.active{
+    background-color: var(--secondary-color);
+}
+
+.account-setting .input-group .input-group-text{
+    background-color: rgb(211, 210, 210);
+}
+
+.edit-profile{
+    background-color: var(--secondary-color);
+}
+
+.edit-profile:hover{
+    background-color: var(--primary-color);
+}
+
+table td{
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel-btn[disabled] {
+    opacity: 1; /* Keep the opacity at full to maintain color */
+    cursor: not-allowed; /* Change the cursor style to indicate it's not clickable */
+    /* Add any other styles as needed */
+  }

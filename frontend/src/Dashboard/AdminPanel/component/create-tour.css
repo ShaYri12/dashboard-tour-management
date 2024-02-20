@@ -1,0 +1,15 @@
+.input-group .input-group-text {
+    background-color: rgb(197, 197, 197);
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+}
+
+.create-tour-btn{
+    background-color: var(--secondary-color);
+    font-size: 19px;
+}
+
+.create-tour-btn:hover,
+.create-tour-btn:focus{
+    background-color: var(--primary-color) !important;
+}

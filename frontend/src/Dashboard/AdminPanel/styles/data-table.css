@@ -1,0 +1,75 @@
+.data-box{
+    min-height: 100vh;
+    
+}
+
+.table-box{
+    overflow-x: auto;
+}
+
+body{
+    min-height: 100vh;
+}
+
+table{
+    border-radius: 20px !important;
+    width: 120%;
+}
+
+tr{
+    border-bottom: 1px solid;
+    
+}
+
+.action-icon{
+    color: var(--primary-color) !important;
+    font-size: 20px;
+}
+
+tr th{
+    
+    color: var(--heading-color) !important;
+    background-color: var(--primary-color) !important
+
+}
+
+th, td{
+    white-space: nowrap;
+    overflow: hidden;          
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.filter-btn{
+    font-size: 17px;
+}
+
+.filter-btn.active{
+    background-color: var(--primary-color);
+}
+
+.action-btn:hover{
+    background-color: var(--secondary-color);
+}
+
+.action-btn:hover i{
+    color:#fff !important
+}
+
+.action-btn:focus{
+    background-color: var(--primary-color) !important;
+    color:#fff !important
+}
+.action-btn:focus i{
+    background-color: var(--primary-color) !important;
+    color:#fff !important
+}
+
+.add-tour-btn{
+    background-color: var(--secondary-color);
+}
+
+.add-tour-btn:focus,
+.add-tour-btn:hover{
+    background-color: var(--primary-color) !important;
+}
