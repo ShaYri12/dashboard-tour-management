@@ -5,7 +5,6 @@ import updateData from '../../hooks/useUpdate'
 import deleteData from '../../hooks/useDelete'
 
 const Users = () => {
-
   const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
@@ -17,13 +16,13 @@ const Users = () => {
 
         try {
           const res = await fetch(url, {
-            method: "GET",
-            credentials:'include',
+            method: 'GET',
+            credentials: 'include',
           });
           if (!res.ok) {
             throw new Error(`Failed to fetch data from ${url}. Status: ${res.status} - ${res.statusText}`);
           }
-          
+
           const result = await res.json();
           setData(result.data);
         } catch (err) {
@@ -37,26 +36,64 @@ const Users = () => {
     }, [url]);
 
     return { data, loading, error };
+  };
+  const {data: users, loading, error } = useFetch(`${BASE_URL}/users`);
+  
+  const [usersWithBookingCounts, setUsersWithBookingCounts] = useState([]);
 
-  }
+  useEffect(() => {
+    const fetchUsersWithBookingCounts = async () => {
+      try {
+        const usersWithCounts = await Promise.all(users.map(async (user) => {
+          const count = await bookingCount(user._id);
+          return { ...user, bookingCount: count };
+        }));
+        setUsersWithBookingCounts(usersWithCounts);
+      } catch (err) {
+        console.error(`Failed to fetch booking counts for users: ${err.message}`);
+      }
+    };
 
-   const handleChangeRole = (userId, value)=>{
-     updateData(`${BASE_URL}/users/${userId}`,'role', value);
-   }
-   
-   const handleDelete = (userId)=>{
+    if (users.length > 0) {
+      fetchUsersWithBookingCounts();
+    }
+  }, [users]);
+
+  const bookingCount = async (userId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/booking/${userId}`, {
+        method: 'GET',
+        credentials: 'include',
+      });
+
+      if (!res.ok) {
+        throw new Error(`Failed to fetch data. Status: ${res.status} - ${res.statusText}`);
+      }
+
+      const result = await res.json();
+      return result.data.length;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  };
+
+  const handleChangeRole = (userId, value) => {
+    updateData(`${BASE_URL}/users/${userId}`, 'role', value);
+  };
+
+  const handleDelete = (userId) => {
     deleteData(`${BASE_URL}/users/${userId}`);
-   }
-   
-const {data: users, loading, error} = useFetch(`${BASE_URL}/users`);
+  };
 
+  
   return (
     <div className='data-box container pt-4 mt-5'>
       <div className='row align-item-center justify-content-center'>
         <h1>Users</h1>
         <h5 className='ps-3 pt-2'>All Users</h5>
         <div className='col-12 table-box'>
-        <table className="table tours-table shadow-lg">
+        <table className="table tours-table shadow">
           <thead>
             <tr>
               <th scope="col" className='text-center'>#</th>
@@ -77,14 +114,14 @@ const {data: users, loading, error} = useFetch(`${BASE_URL}/users`);
             error && <tr><td colSpan={7}>{error}</td></tr>
           }
           {!loading && !error &&
-              users?.map((user,index)=>(
+            usersWithBookingCounts?.map((user,index)=>(
             <tr key={user._id}>
               <th scope="row" className='text-center'>{index+1}</th>
               <td>{user._id}</td>
               <td><img src={user.photo || Avatar} className='profileimg img-fluid rounded-circle border border-2' style={{width:'60px', height:'60px' , objectFit:'cover'}} alt="profile-img"/></td>
               <td>{user.username}</td>
               <td>{user.email}</td>
-              <td>3</td>
+              <td>{user.bookingCount}</td>
               <td>
               <select
                   className="form-select"

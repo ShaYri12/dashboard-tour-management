@@ -27,14 +27,14 @@ const AllTours = () => {
         <h1>Tours</h1>
         <div className='d-flex align-item-center justify-content-between'>
           <div>
-            <h5 className='ps-3 pt-2'>All Tours</h5>
+            <h5 className='pt-2'>All Tours</h5>
           </div>
-          <div className='me-3'>
+          <div className='d-flex align-items-end mb-1'>
             <Link className='add-tour-btn btn btn-light' to="/createtour"><i className="ri-file-add-line"></i> Create Tour</Link>
           </div>
         </div>
         <div className='col-12 table-box '>
-        <table className="table tours-table shadow-lg">
+        <table className="table tours-table shadow">
           <thead>
             <tr>
               <th scope="col" className='text-center'>#</th>

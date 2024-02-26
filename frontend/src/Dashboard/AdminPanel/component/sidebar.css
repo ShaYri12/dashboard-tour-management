@@ -33,26 +33,6 @@
     }
 }
 
-
-@media screen and (max-width: 991px) {
-    .sidebar-collapse-behind-space {
-        width: 0px !important;
-    }
-}
-
-@media screen and (max-width: 845px) {
-    .sidebar-collapse-behind-space {
-        width: 40px !important;
-    }
-}
-
-@media screen and (max-width: 805px) {
-    .sidebar-collapse-behind-space {
-        min-width: 64px !important;
-        background-color: aqua;
-    }
-}
-
 .sidebar{
     min-height: 100vh;
     position: fixed;
@@ -98,4 +78,65 @@
 .dropdown-item.active,
 .dropdown-item:focus{
     background-color: var(--primary-color) !important;
+}
+
+
+@media screen and (max-width: 1180px) {
+    .sidebar-behind-space{
+        width: 290px;
+    }
+    
+}
+
+@media screen and (max-width: 1009px) {
+    .sidebar-behind-space{
+        min-width: 22.3%;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar-link,
+    .sidebar-link i{
+        font-size: 20px !important;
+    }
+
+    .admin-nav-items{
+        font-size: 10px !important;
+
+    }
+
+    .admin-nav-items .nav-link{
+        padding: 0 7px;
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .admin-nav-items .nav-link.active{
+        padding: 0 20px 0 5px;
+        width: 80%;
+        
+    }
+
+    .nav-link.active i{
+        font-size: 25px !important;
+    }
+
+    .collapsed {
+        width: 40px; /* Set the desired collapsed width */
+      }
+
+    .collapse-btn{
+        padding: 7px;
+        padding: 2px 0px 2px 0px;
+    }
+
+    .collapse-btn i{
+        font-size: 20px;
+    }
+
+    .sidebar-collapse-behind-space{
+        min-width: 40px !important;
+    }
+    
 }

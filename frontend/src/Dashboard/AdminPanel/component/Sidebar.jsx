@@ -88,7 +88,7 @@ const Sidebar = () => {
           </button>
         </Link>
         <hr/>
-        <ul className={`nav nav-pills shadow-lg flex-column mb-auto ${isCollapsed ? 'collapsed' : ''}`}>
+        <ul className={`nav nav-pills shadow flex-column mb-auto ${isCollapsed ? 'collapsed' : ''}`}>
           <li className="nav-item admin-nav-items">
             <NavLink to="/dashboard" className="nav-link text-white" aria-current="page">
             <i className={`ri-dashboard-line ${isCollapsed ? '' : 'pe-2'}`}></i>
@@ -125,12 +125,12 @@ const Sidebar = () => {
       <div className='w-100'>
         <hr/>
         <div className="dropdown">
-          <NavLink to="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src={userinfo.photo || Avatar} className='profileimg img-fluid rounded-circle border border-2 me-2 ms-3' style={{width:'40px', objectFit:'cover'}} alt="profile-img"/>
-            <strong>{isCollapsed ? '' : userinfo.username}</strong>
+          <NavLink to="#" className={`d-flex align-items-center text-white text-decoration-none ${isCollapsed ? (''):('dropdown-toggle')} `} data-bs-toggle="dropdown" aria-expanded="false">
+            <img src={userinfo.photo || Avatar} className='profileimg img-fluid rounded-circle border border-2 me-2 ms-2' style={{width:'40px', height:'40px', objectFit:'cover'}} alt="profile-img"/>
+            <strong className='ms-1'>{isCollapsed ? '' : userinfo.username}</strong>
           </NavLink>
           <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><Link className="dropdown-item" to={`/my-account/${user._id}`}>Profile</Link></li>
+            <li><NavLink className="dropdown-item" to={`/my-account/${user._id}`}>Profile</NavLink></li>
             <li><hr className="dropdown-divider"/></li>
             <li><Link className="dropdown-item" onClick={logout}>Sign out</Link></li>
           </ul>

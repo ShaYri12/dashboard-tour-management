@@ -92,3 +92,109 @@ th, td{
     background-color: var(--secondary-color);
     color: #fff !important;
 }
+
+
+@media screen and (max-width: 805px) {
+    .profileimg{
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .form-select{
+        font-size: 70% !important;
+        height: 15px;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tours-table th, .tours-table td {
+        font-size: 70%;
+    }
+    .action-btn i{
+        font-size: 70%;
+    }
+
+    .action-btn{
+        padding: 0 7px;
+    }
+    .menu-item-img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .action-btn i{
+        font-size: 70%;
+    }
+
+    .action-btn{
+        padding: 0 7px;
+    }
+    .dashboard-text{
+        font-size: 80%;
+    }
+    .dashboard-heading{
+        font-size: 25px;
+    }
+    .filter-btn{
+        font-size: 10px !important;
+        padding: 0 3px;
+        height: 25px;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .tours-table th, .tours-table td {
+        font-size: 70%;
+    }
+    .action-btn i{
+        font-size: 70%;
+    }
+
+    .action-btn{
+        padding: 0 7px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tours-table th, .tours-table td {
+        font-size: 50%;
+    }
+    .action-btn i{
+        font-size: 70%;
+        color: var(--secondary-color);
+    }
+
+    .action-btn:hover i{
+        font-size: 70%;
+        color: var(--secondary-color) !important;
+    }
+
+    .action-btn{
+        padding: 0 0;
+        margin: 0;
+        background-color: transparent;
+    }
+
+    .action-btn:hover,
+    .action-btn:active
+    {
+        padding: 0 0;
+        margin: 0;
+        background-color: transparent !important;
+        border-color: transparent;
+        color: var(--secondary-color) !important;
+    }
+
+    .profileimg{
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .add-tour-btn{
+        font-size: 10px !important;
+        
+        
+    }
+}

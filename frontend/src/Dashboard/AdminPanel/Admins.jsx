@@ -56,7 +56,7 @@ const Admins = () => {
         <h1>Users</h1>
         <h5 className='ps-3 pt-2'>All Users</h5>
         <div className='col-12 table-box'>
-        <table className="table tours-table shadow-lg">
+        <table className="table tours-table shadow">
           <thead>
             <tr>
               <th scope="col" className='text-center'>#</th>
