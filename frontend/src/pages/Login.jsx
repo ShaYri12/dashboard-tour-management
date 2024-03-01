@@ -44,13 +44,20 @@ const Login = () => {
       if(!res.ok){
         return toast.error(result.message)
       }
+      if(result.role !== 'admin'){
+        toast.error('You Are Not Authorized');
+        dispatch({type:'LOGIN_FAILURE', payload:error.message})
+        navigate("/login");
+      }
+      else{
       
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: {
-          user: result.data,
-          token: result.token,
-          role: result.role,
+          user: {
+            ...result.data,
+            role: result.role,
+          },
         },
       });
       toast.success(result.message);
@@ -58,6 +65,7 @@ const Login = () => {
       {
         role === "admin" ? <Navigate to="/dashboard"/> : navigate("/");
       }
+    }
       
     }catch (error){
       dispatch({type:'LOGIN_FAILURE', payload:error.message}) 
@@ -65,6 +73,11 @@ const Login = () => {
   }
   return (
     <section>
+    <div class="alert alert-info text-center" role="alert">
+      To Login As Admin:<br/>
+      Email: admin@gmail.com<br/>
+      Password: admin
+    </div>
       <div className='container'>
         <div className='row'> 
           <div className='col-lg-8 m-auto col-12'>
